@@ -1,0 +1,29 @@
+<nav class="navbar" role="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav navbar-left">
+        <p>Project Name</p>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li>
+            <p><%= current_user.email %></p>
+          </li>
+
+          <% if user_is_admin? %>
+            <li>
+              <%= link_to "Admin Panel", "/admin" %>
+            </li>
+          <% end %>
+
+          <li>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          </li>
+        <% end %>
+      </ul>
+
+    </div>
+  </div>
+</nav>
